@@ -1,4 +1,4 @@
-package com.example.testtask.Util
+package com.example.testtask.Model
 
 class NetworkServiceHeaders {
 

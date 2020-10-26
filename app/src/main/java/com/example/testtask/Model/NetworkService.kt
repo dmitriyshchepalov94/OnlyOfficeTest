@@ -1,8 +1,8 @@
-package com.example.testtask.Util
+package com.example.testtask.Model
 
 
-import com.example.testtask.Model.Folder
-import com.example.testtask.Model.User
+import com.example.testtask.Util.JsonParser
+import com.example.testtask.Util.RequestMaker
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback

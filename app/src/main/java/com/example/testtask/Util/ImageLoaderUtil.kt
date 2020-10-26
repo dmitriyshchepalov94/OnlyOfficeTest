@@ -1,6 +1,7 @@
 package com.example.testtask.Util
 
 import android.graphics.*
+import com.example.testtask.Model.NetworkServiceHeaders
 import com.example.testtask.Model.User
 import com.squareup.picasso.Transformation
 import okhttp3.Interceptor
