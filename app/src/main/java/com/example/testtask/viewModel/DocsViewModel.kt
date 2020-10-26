@@ -190,11 +190,11 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
         {
             if(file is File)
             {
-                Picasso.get().load(R.drawable.ic_doc).fit().centerCrop().into(view)
+                Picasso.get().load(R.drawable.outline_description_black_24dp).fit().centerCrop().into(view)
             }
             else if(file is Folder)
             {
-                Picasso.get().load(R.drawable.ic_folder).fit().centerCrop().into(view)
+                Picasso.get().load(R.drawable.outline_source_black_24dp).fit().centerCrop().into(view)
             }
         }
         @BindingAdapter("app:setVisible")
