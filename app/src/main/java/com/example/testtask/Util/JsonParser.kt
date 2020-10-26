@@ -1,5 +1,8 @@
-package com.example.testtask
+package com.example.testtask.Util
 
+import com.example.testtask.Model.File
+import com.example.testtask.Model.Folder
+import com.example.testtask.Model.User
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import kotlin.math.roundToInt

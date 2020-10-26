@@ -7,7 +7,7 @@
     <data>
         <variable
             name="headerViewModel"
-            type="com.example.testtask.HeaderViewModel" />
+            type="com.example.testtask.viewModel.HeaderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

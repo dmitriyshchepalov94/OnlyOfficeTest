@@ -1,9 +1,11 @@
-package com.example.testtask
+package com.example.testtask.Util
 
 import android.annotation.SuppressLint
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Message
+import com.example.testtask.Model.Folder
+import com.example.testtask.Model.User
 
 
 const val TAG = "REQUEST_MAKER"
@@ -88,7 +90,7 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
                             }
                         )
                     }
-                    MESSAGE_GET_USER_DOCS->
+                    MESSAGE_GET_USER_DOCS ->
                     {
                         handler?.post(
                             object : Runnable

@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.Model
 
 import android.os.Parcel
 import android.os.Parcelable

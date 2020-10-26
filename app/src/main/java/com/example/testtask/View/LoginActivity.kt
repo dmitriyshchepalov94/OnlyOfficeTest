@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.View
 
 import android.content.Context
 import android.content.Intent

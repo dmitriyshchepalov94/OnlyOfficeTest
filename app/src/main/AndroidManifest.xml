@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DocsWatcherActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".View.DocsWatcherActivity"></activity>
+        <activity android:name=".View.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

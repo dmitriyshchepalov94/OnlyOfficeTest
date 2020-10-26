@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.View
 
 import android.os.Bundle
 import android.view.*
@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.testtask.Model.User
+import com.example.testtask.R
+import com.example.testtask.viewModel.DocsViewModel
+import com.example.testtask.viewModel.HeaderViewModel
 import com.example.testtask.databinding.DocsWatcherFragmentBinding
 import com.example.testtask.databinding.NavigationHeaderBinding
 import com.google.android.material.navigation.NavigationView
@@ -20,7 +24,7 @@ class DocsWatcherFragment: Fragment(), NavigationView.OnNavigationItemSelectedLi
     var mDocsWatcherBinding: DocsWatcherFragmentBinding? = null
     companion object
     {
-        fun newInstance(user:User):DocsWatcherFragment {
+        fun newInstance(user: User): DocsWatcherFragment {
             val args = Bundle()
 
             args.putParcelable(USER, user)
@@ -38,12 +42,14 @@ class DocsWatcherFragment: Fragment(), NavigationView.OnNavigationItemSelectedLi
     ): View? {
 
 
-        mDocsWatcherBinding  = DataBindingUtil.inflate<DocsWatcherFragmentBinding>(inflater, R.layout.docs_watcher_fragment, container, false)
+        mDocsWatcherBinding  = DataBindingUtil.inflate<DocsWatcherFragmentBinding>(inflater,
+            R.layout.docs_watcher_fragment, container, false)
 
         mUser = arguments?.getParcelable<User>(USER)
 
 
-        val navigationHeader: NavigationHeaderBinding = DataBindingUtil.inflate(LayoutInflater.from(activity), R.layout.navigation_header, mDocsWatcherBinding?.watcherNavigationView, false)
+        val navigationHeader: NavigationHeaderBinding = DataBindingUtil.inflate(LayoutInflater.from(activity),
+            R.layout.navigation_header, mDocsWatcherBinding?.watcherNavigationView, false)
         mDocsWatcherBinding?.watcherNavigationView?.addHeaderView(navigationHeader.root)
         navigationHeader.headerViewModel = HeaderViewModel(mUser!!)
         mDocsWatcherBinding?.recyclerViewModel = context?.let { DocsViewModel(it, mUser!!, navigationHeader) }
@@ -57,7 +63,10 @@ class DocsWatcherFragment: Fragment(), NavigationView.OnNavigationItemSelectedLi
         setHasOptionsMenu(true)
 
         watcher_navigation_view.menu.getItem(0).setChecked(true)
-        val burgerButton = ActionBarDrawerToggle(activity, watcher_drawer, watcher_toolbar, R.string.open, R.string.close)
+        val burgerButton = ActionBarDrawerToggle(activity, watcher_drawer, watcher_toolbar,
+            R.string.open,
+            R.string.close
+        )
         watcher_drawer.addDrawerListener(burgerButton)
         burgerButton.syncState()
     }

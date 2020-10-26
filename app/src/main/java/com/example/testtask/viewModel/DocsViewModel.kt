@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.viewModel
 
 import android.content.Context
 import android.os.Handler
@@ -18,6 +18,14 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testtask.BR
+import com.example.testtask.View.LoginActivity
+import com.example.testtask.Model.BaseFileClass
+import com.example.testtask.Model.File
+import com.example.testtask.Model.Folder
+import com.example.testtask.Model.User
+import com.example.testtask.R
+import com.example.testtask.Util.RequestMaker
 import com.example.testtask.databinding.DocsListItemBinding
 import com.example.testtask.databinding.NavigationHeaderBinding
 import com.squareup.picasso.Picasso
@@ -136,7 +144,8 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
     {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
             val inflater = LayoutInflater.from(context)
-            val binding = DataBindingUtil.inflate<DocsListItemBinding>(inflater, R.layout.docs_list_item, parent, false)
+            val binding = DataBindingUtil.inflate<DocsListItemBinding>(inflater,
+                R.layout.docs_list_item, parent, false)
             return ItemViewHolder(binding)
         }
 
@@ -177,7 +186,7 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
 
         @BindingAdapter("app:setImage")
         @JvmStatic
-        fun setImage(view: ImageView, file:BaseFileClass)
+        fun setImage(view: ImageView, file: BaseFileClass)
         {
             if(file is File)
             {

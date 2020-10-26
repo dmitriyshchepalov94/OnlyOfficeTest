@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.View
 
 
 import android.os.Bundle
@@ -9,6 +9,9 @@ import android.view.ViewGroup
 
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.testtask.Model.User
+import com.example.testtask.R
+import com.example.testtask.viewModel.LoginViewModel
 import com.example.testtask.databinding.LoginFragmentBinding
 
 const val SAVED_USER = "USER"
@@ -18,7 +21,7 @@ class LoginFragment: Fragment() {
 
     companion object
     {
-        fun newInstance(): LoginFragment{
+        fun newInstance(): LoginFragment {
             val args = Bundle()
 
             val fragment = LoginFragment()
@@ -43,7 +46,8 @@ class LoginFragment: Fragment() {
             user = User()
         }
 
-        loginBinding = DataBindingUtil.inflate<LoginFragmentBinding>(inflater, R.layout.login_fragment, container, false)
+        loginBinding = DataBindingUtil.inflate<LoginFragmentBinding>(inflater,
+            R.layout.login_fragment, container, false)
         loginBinding?.loginViewModel = context?.let { LoginViewModel(it, user!!) }
         return loginBinding?.root
     }

@@ -1,4 +1,4 @@
-package com.example.testtask
+package com.example.testtask.viewModel
 
 import android.content.Context
 import android.util.Patterns
@@ -8,6 +8,11 @@ import android.widget.Toast
 import androidx.databinding.BaseObservable
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LifecycleObserver
+import com.example.testtask.BR
+import com.example.testtask.View.DocsWatcherActivity
+import com.example.testtask.Model.User
+import com.example.testtask.R
+import com.example.testtask.Util.RequestMaker
 
 
 class LoginViewModel(val context: Context, var mUser: User): LifecycleObserver, BaseObservable() {

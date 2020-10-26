@@ -1,6 +1,8 @@
-package com.example.testtask
+package com.example.testtask.Util
 
 
+import com.example.testtask.Model.Folder
+import com.example.testtask.Model.User
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,7 +14,8 @@ import retrofit2.http.*
 
 class NetworkService(var mPortal: String){
 
-    private var mRetrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl("https://${mPortal}.onlyoffice.com").build().create(requestsToApi::class.java)
+    private var mRetrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl("https://${mPortal}.onlyoffice.com").build().create(
+        requestsToApi::class.java)
 
     fun authentication(user: User): Boolean
     {
