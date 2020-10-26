@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/docs_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/my_docs"
+            android:title="@string/my_docs"
+            android:icon="@drawable/ic_folder"/>
+        <item
+            android:id="@+id/common_docs"
+            android:title="@string/common_docs"
+            android:icon="@drawable/ic_folder"/>
+    </group>
+
+</menu>

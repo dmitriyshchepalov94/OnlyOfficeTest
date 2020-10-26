@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="my_docs">Мои документы</string>
+    <string name="common_docs">Общие документы</string>
+    <string name="logout">Выйти</string>
+
+    <string name="docs_error">Не удалось загрузить документы</string>
+    <string name="info_error">Не удалось загрузить данные пользователя</string>
+</resources>
