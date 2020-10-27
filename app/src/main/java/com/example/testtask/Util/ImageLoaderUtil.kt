@@ -20,7 +20,7 @@ class ImageLoaderUtil: Transformation {
                     {
                         override fun intercept(chain: Interceptor.Chain): Response {
                             val request = chain.request().newBuilder()
-                                .addHeader("${NetworkServiceHeaders.HEADER_AUTORIZATION}", "${user.mAccessToken}")
+                                .addHeader("${NetworkServiceHeaders.HEADER_AUTHORIZATION}", "${user.mAccessToken}")
                                 .build()
                             return chain.proceed(request)
                         }

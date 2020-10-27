@@ -125,7 +125,7 @@ class NetworkService(var mPortal: String){
         val headerMap = mutableMapOf<String, String>()
         headerMap[NetworkServiceHeaders.HEADER_CONTENT_TYPE] = NetworkServiceHeaders.HEADER_APP_JSON
         headerMap[NetworkServiceHeaders.HEADER_ACCEPT] = NetworkServiceHeaders.HEADER_APP_JSON
-        headerMap[NetworkServiceHeaders.HEADER_AUTORIZATION] = user.mAccessToken
+        headerMap[NetworkServiceHeaders.HEADER_AUTHORIZATION] = user.mAccessToken
         return headerMap
     }
 

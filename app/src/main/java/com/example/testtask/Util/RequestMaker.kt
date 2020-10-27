@@ -29,6 +29,8 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
     }
 
 
+    var mRequestInProgress = false
+
     private var mRequestHandler: Handler? = null
     private var mInterfaceListener: NetworkInterface? = null
     private val mRequestMaker = this
@@ -86,6 +88,7 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
                             {
                                 override fun run() {
                                     mInterfaceListener?.onGetUserInfo()
+                                    mRequestInProgress = false
                                 }
 
                             }
@@ -98,6 +101,7 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
                             {
                                 override fun run() {
                                     mInterfaceListener?.onGetUserDocs()
+                                    mRequestInProgress = false
                                 }
 
                             }
@@ -111,6 +115,7 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
                             {
                                 override fun run() {
                                     mInterfaceListener?.onUserDocsFailure()
+                                    mRequestInProgress = false
                                 }
 
                             }
@@ -122,6 +127,7 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
                             object : Runnable {
                                 override fun run() {
                                     mInterfaceListener?.onUserInfoFailure()
+                                    mRequestInProgress = false
                                 }
 
                             }
@@ -136,6 +142,7 @@ class RequestMaker(var mUser: User, val handler: Handler?): HandlerThread(TAG) {
     fun sendMessage(message: Int, folder: Folder? = null)
     {
         mRequestHandler?.obtainMessage(message, folder)?.sendToTarget()
+        mRequestInProgress = true
     }
 
 }

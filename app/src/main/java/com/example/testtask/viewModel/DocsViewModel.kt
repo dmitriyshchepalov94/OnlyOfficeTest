@@ -84,8 +84,10 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
         Thread.sleep(100)
         mLoadingProcess = true
         notifyPropertyChanged(BR._all)
-        mRequestMaker?.sendMessage(RequestMaker.MESSAGE_USER_INFO)
-        mRequestMaker?.sendMessage(RequestMaker.MESSAGE_USER_DOCS)
+        if(!mRequestMaker?.mRequestInProgress!!) {
+            mRequestMaker?.sendMessage(RequestMaker.MESSAGE_USER_INFO)
+            mRequestMaker?.sendMessage(RequestMaker.MESSAGE_USER_DOCS)
+        }
     }
 
 
@@ -105,9 +107,11 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
 
     fun onFolderBack()
     {
-        mUser.mFiles.clear()
-        if(!mFolder.path.isEmpty()) {
-            mRequestMaker?.sendMessage(RequestMaker.MESSAGE_PARENT_FOLDER, mFolder)
+        if(!mRequestMaker?.mRequestInProgress!!) {
+            mUser.mFiles.clear()
+            if (!mFolder.path.isEmpty()) {
+                mRequestMaker?.sendMessage(RequestMaker.MESSAGE_PARENT_FOLDER, mFolder)
+            }
         }
     }
 
@@ -118,12 +122,12 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
             R.id.my_docs ->
             {
                 mUser.mFiles.clear()
-                mRequestMaker?.sendMessage(RequestMaker.MESSAGE_USER_DOCS)
+                if(!mRequestMaker?.mRequestInProgress!!) mRequestMaker?.sendMessage(RequestMaker.MESSAGE_USER_DOCS)
             }
             R.id.common_docs ->
             {
                 mUser.mFiles.clear()
-                mRequestMaker?.sendMessage(RequestMaker.MESSAGE_COMMON_DOCS)
+                if(!mRequestMaker?.mRequestInProgress!!) mRequestMaker?.sendMessage(RequestMaker.MESSAGE_COMMON_DOCS)
             }
         }
     }
@@ -154,8 +158,10 @@ class DocsViewModel(val context: Context, var mUser: User, val headerBinding: Na
             if(item is Folder) {
                 holder.itemView.setOnClickListener {
                     mFolder = item
-                    mUser.mFiles.clear()
-                    mRequestMaker?.sendMessage(RequestMaker.MESSAGE_FOLDER_CONTENT, mFolder)
+                    if(!mRequestMaker?.mRequestInProgress!!) {
+                        mUser.mFiles.clear()
+                        mRequestMaker?.sendMessage(RequestMaker.MESSAGE_FOLDER_CONTENT, mFolder)
+                    }
                 }
             }
             holder.bind(item)
